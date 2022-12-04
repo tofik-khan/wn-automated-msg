@@ -1,0 +1,22 @@
+{
+  "name": "wn-automated-msg",
+  "version": "1.0.0",
+  "description": "Project to automate monthly reminders to local secretary Waqf-e-Nau about the monthly reports",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tofik-khan/wn-automated-msg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tofik-khan/wn-automated-msg/issues"
+  },
+  "homepage": "https://github.com/tofik-khan/wn-automated-msg#readme",
+  "dependencies": {
+    "node-cron": "^3.0.2"
+  }
+}
