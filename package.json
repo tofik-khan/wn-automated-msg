@@ -4,13 +4,15 @@
   "description": "Project to automate monthly reminders to local secretary Waqf-e-Nau about the monthly reports",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "npm install",
+    "build": "",
+    "start": "npm index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tofik-khan/wn-automated-msg.git"
   },
-  "author": "",
+  "author": "Tofik Khan - Portland OR",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tofik-khan/wn-automated-msg/issues"
