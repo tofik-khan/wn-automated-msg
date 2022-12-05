@@ -1,5 +1,7 @@
 const cron = require('node-cron');
 
+require('dotenv').config()
+
 const schedule = {
     seconds:     "*", // 0-59 | *
     minutes:     "*", // 0-59 | *
@@ -12,5 +14,5 @@ const schedule = {
 const scheduleStr = Object.values(schedule).join(" ");
 
 cron.schedule(scheduleStr, () => {
-  console.log('running a task every second');
+  console.log(`Printing Local var ${process.env.TEST}`);
 });
