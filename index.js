@@ -59,7 +59,7 @@ function sendMessage(userArray) {
 
     let name = element.name;
     let phone = sanitizeNumber(element.phone);
-    //let jammat = element.jammat;
+    let jammat = element.jammat;
 
     //Generate message template
     let message = `AA ${name} Sahib, WN reports r due in a week. Plz send self-reporting form to parents/waqifeen available at Hub. Plz contact Safeer Bhatti @ 610-564-2165`;
@@ -75,11 +75,23 @@ function sendMessage(userArray) {
       .then((message) => console.log(message))
     }
     else {
-      console.error("Error parsing phone number. Invalid or missing significant characters", "\n", `Verify phone number: ${phone}`);
+      console.error(timestamp(), "Error parsing phone number. Invalid or missing significant characters", "\n", `Verify phone number: ${phone}`);
+
+      let message = `AutoText: Err msg to ${name} Sahib of ${jammat} @ ${element.phone}. Invalid phone number in database`;
+
+      if(process.env.SEND_LOG_ON_ERROR === "true") {
+        // Send message about failed attempt to admin
+        client.messages
+        .create({
+          body: message,
+          to: process.env.ADMIN_PHONE_NUMBER, 
+          messagingServiceSid: process.env.TWILIO_SERVICE_SID,
+        })
+        .then((message) => console.log(message))
+      }
     }
 
   });
-
 }
 
 function sanitizeNumber(number) {
