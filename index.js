@@ -4,8 +4,8 @@ const {MongoClient} = require('mongodb');
 require('dotenv').config()
 
 const schedule = {
-    seconds:     "*", // 0-59 | *
-    minutes:     "0", // 0-59 | *
+    seconds:     "0", // 0-59 | *
+    minutes:     "*", // 0-59 | *
     hours:       "*", // 0-23 | *
     dayOfMonth:  "*", // 1-31 | *
     month:       "*", // 1-12 | January,September... | Jan,Sep | *
@@ -61,7 +61,22 @@ function sendMessage(userArray) {
     let phone = sanitizeNumber(element.phone);
     //let jammat = element.jammat;
 
+    //Generate message template
+    let message = `AA ${name} Sahib, WN reports r due in a week. Plz send self-reporting form to parents/waqifeen available at Hub. Plz contact Safeer Bhatti @ 610-564-2165`;
 
+    //Determine if phone number was valid (only accounts for phone numbers that were missing significant characters)
+    if(phone.length > 0) {
+      client.messages
+      .create({
+        body: message,
+        to: phone, // Text this number
+        messagingServiceSid: process.env.TWILIO_SERVICE_SID,
+      })
+      .then((message) => console.log(message))
+    }
+    else {
+      console.error("Error parsing phone number. Invalid or missing significant characters", "\n", `Verify phone number: ${phone}`);
+    }
 
   });
 
