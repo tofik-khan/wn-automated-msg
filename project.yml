@@ -1,0 +1,27 @@
+parameters: {}
+environment: {}
+packages:
+    - name: cron
+      shared: false
+      environment: {}
+      parameters: {}
+      annotations: {}
+      functions:
+        - name: texts
+          binary: false
+          main: ""
+          runtime: nodejs:default
+          web: true
+          websecure: false
+          parameters: {}
+          environment: 
+            MONGODB_USERNAME: "${MONGODB_USERNAME}"
+            MONGODB_PASSWORD: "${MONGODB_PASSWORD}"
+            MONGODB_CLUSTER: "${MONGODB_CLUSTER}"
+            TWILIO_ACCOUNT_SID: "${TWILIO_ACCOUNT_SID}"
+            TWILIO_AUTH_TOKEN: "${TWILIO_AUTH_TOKEN}"
+            TWILIO_SERVICE_SID: "${TWILIO_SERVICE_SID}"
+            SEND_LOG_ON_ERROR: "${SEND_LOG_ON_ERROR}"
+            ADMIN_PHONE_NUMBER: "${ADMIN_PHONE_NUMBER}"
+          annotations: {}
+          limits: {}
