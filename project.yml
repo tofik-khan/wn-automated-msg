@@ -9,11 +9,12 @@ packages:
       functions:
         - name: texts
           binary: false
-          main: "main.js"
+          main: ""
           runtime: nodejs:default
           web: true
           websecure: false
           parameters: {}
-          environment: {}
+          environment: 
+            name: "${name}"
           annotations: {}
           limits: {}
