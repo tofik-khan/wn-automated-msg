@@ -4,7 +4,8 @@
     "description": "Cron function to send automated text messages",
     "main": "main.js",
     "dependencies": {
-        "mongodb": "^4.12.1"
+        "mongodb": "^4.12.1",
+        "twilio": "^3.83.4"
     },
     "devDependencies": {}
   }
