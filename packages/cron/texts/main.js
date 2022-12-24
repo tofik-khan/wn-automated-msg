@@ -51,7 +51,7 @@ const uri = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB
       let jammat = element.jammat;
   
       //Generate message template
-      let message = `AA ${name} Sahib, WN reports r due in a week. Plz send self-reporting form to parents/waqifeen available at Hub. Plz contact Safeer Bhatti @ 610-564-2165`;
+      let message = `AA ${name} Sahib, WN reports r due on the 5th. Plz send self-reporting form to parents/waqifeen available at Hub. Plz contact Safeer Bhatti @ 610-564-2165`;
   
       //Determine if phone number was valid (only accounts for phone numbers that were missing significant characters)
       if(phone.length > 0) {
